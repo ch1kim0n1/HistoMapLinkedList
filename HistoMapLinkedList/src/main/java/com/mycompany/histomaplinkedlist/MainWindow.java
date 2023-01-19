@@ -23,8 +23,9 @@ public class MainWindow extends javax.swing.JFrame {
 
         MainWindow_Button_GetHashMap = new javax.swing.JButton();
         MainWindow_TextField_Grades = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new GraphicsPanel();
+        MainWindow_Label_GradesHERE = new javax.swing.JLabel();
+        MainWindow_Panel_Graph = new GraphicsPanel();
+        MainWindow_Button_removeTable = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -37,44 +38,54 @@ public class MainWindow extends javax.swing.JFrame {
 
         MainWindow_TextField_Grades.setText("9 30 4 94 85 86 92 100 74 85 96 84 84 82 78 74 60 62 96 87 88");
 
-        jLabel1.setText("<-Grades here");
+        MainWindow_Label_GradesHERE.setText("<-Grades here");
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        MainWindow_Panel_Graph.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout MainWindow_Panel_GraphLayout = new javax.swing.GroupLayout(MainWindow_Panel_Graph);
+        MainWindow_Panel_Graph.setLayout(MainWindow_Panel_GraphLayout);
+        MainWindow_Panel_GraphLayout.setHorizontalGroup(
+            MainWindow_Panel_GraphLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        MainWindow_Panel_GraphLayout.setVerticalGroup(
+            MainWindow_Panel_GraphLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 564, Short.MAX_VALUE)
         );
+
+        MainWindow_Button_removeTable.setText("Remove Table");
+        MainWindow_Button_removeTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MainWindow_Button_removeTableActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(139, 139, 139)
+                .addGap(14, 14, 14)
+                .addComponent(MainWindow_Button_removeTable)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(MainWindow_Button_GetHashMap)
                 .addGap(150, 150, 150)
                 .addComponent(MainWindow_TextField_Grades, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
+                .addComponent(MainWindow_Label_GradesHERE)
                 .addGap(28, 28, 28))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(MainWindow_Panel_Graph, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(MainWindow_Panel_Graph, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(MainWindow_Button_GetHashMap)
                     .addComponent(MainWindow_TextField_Grades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(MainWindow_Label_GradesHERE)
+                    .addComponent(MainWindow_Button_removeTable))
                 .addContainerGap())
         );
 
@@ -85,8 +96,13 @@ public class MainWindow extends javax.swing.JFrame {
     //passes the grade data to the Graphics Panel so that histogram is built in the GraphicsComponent(Graphics) methid.
     
     String data = MainWindow_TextField_Grades.getText();
-    ((GraphicsPanel)jPanel1).processData(data);
+    ((GraphicsPanel)MainWindow_Panel_Graph).processData(data);
     }//GEN-LAST:event_MainWindow_Button_GetHashMapActionPerformed
+
+    private void MainWindow_Button_removeTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MainWindow_Button_removeTableActionPerformed
+    String data = "";
+    ((GraphicsPanel)MainWindow_Panel_Graph).processData(data);
+    }//GEN-LAST:event_MainWindow_Button_removeTableActionPerformed
 
     /**
      * @param args the command line arguments
@@ -125,8 +141,9 @@ public class MainWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton MainWindow_Button_GetHashMap;
+    private javax.swing.JButton MainWindow_Button_removeTable;
+    private javax.swing.JLabel MainWindow_Label_GradesHERE;
+    private javax.swing.JPanel MainWindow_Panel_Graph;
     private javax.swing.JTextField MainWindow_TextField_Grades;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

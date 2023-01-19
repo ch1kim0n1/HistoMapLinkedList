@@ -24,26 +24,29 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <Component id="MainWindow_Button_removeTable" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="MainWindow_Button_GetHashMap" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
               <Component id="MainWindow_TextField_Grades" min="-2" pref="477" max="-2" attributes="0"/>
-              <EmptySpace pref="213" max="32767" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="221" max="32767" attributes="0"/>
+              <Component id="MainWindow_Label_GradesHERE" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
           </Group>
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Component id="MainWindow_Panel_Graph" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <Component id="jPanel1" max="32767" attributes="0"/>
+              <Component id="MainWindow_Panel_Graph" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="MainWindow_Button_GetHashMap" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="MainWindow_TextField_Grades" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="MainWindow_Label_GradesHERE" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="MainWindow_Button_removeTable" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -64,12 +67,12 @@
         <Property name="text" type="java.lang.String" value="9 30 4 94 85 86 92 100 74 85 96 84 84 82 78 74 60 62 96 87 88"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="MainWindow_Label_GradesHERE">
       <Properties>
         <Property name="text" type="java.lang.String" value="&lt;-Grades here"/>
       </Properties>
     </Component>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="MainWindow_Panel_Graph">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -92,5 +95,13 @@
         </DimensionLayout>
       </Layout>
     </Container>
+    <Component class="javax.swing.JButton" name="MainWindow_Button_removeTable">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Remove Table"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MainWindow_Button_removeTableActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>
