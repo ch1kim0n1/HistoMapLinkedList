@@ -97,22 +97,24 @@ return Color.RED;
 }
 
 private int[] getGradeCounts(String gradesString) {
-int[] gradeCounts = new int[5];
-String[] grades = gradesString.split(" ");
-for (String grade : grades) {
-    int score = Integer.parseInt(grade);
-    if (score >= 90) {
-        gradeCounts[0]++;
-    } else if (score >= 80) {
-        gradeCounts[1]++;
-    } else if (score >= 70) {
-        gradeCounts[2]++;
-    } else if (score >= 60) {
-        gradeCounts[3]++;
-    } else {
-        gradeCounts[4]++;
+    int[] gradeCounts = new int[5];
+    String[] grades = gradesString.split(" ");
+    for (String grade : grades) {
+        if (!grade.isEmpty()) {
+            int score = Integer.parseInt(grade);
+            if (score >= 90) {
+                gradeCounts[0]++;
+            } else if (score >= 80) {
+                gradeCounts[1]++;
+            } else if (score >= 70) {
+                gradeCounts[2]++;
+            } else if (score >= 60) {
+                gradeCounts[3]++;
+            } else {
+                gradeCounts[4]++;
+            }
+        }
     }
-  }
     return gradeCounts;
 }
 
