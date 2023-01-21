@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
+import java.util.Random;
 
 /**
  *
@@ -17,10 +18,13 @@ import javax.swing.JPanel;
 public class GraphicsPanel extends JPanel{
     
     private String data = "";
+    private boolean Random = false;
+    Color[] colors = {Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.ORANGE, Color.PINK, Color.CYAN, Color.MAGENTA, Color.GRAY, Color.BLACK, Color.DARK_GRAY, Color.LIGHT_GRAY};
+Random rand = new Random();
     
-    public void processData (String data){
+    public void processData (String data, boolean randomC){
         this.data = data;
-        
+        this.Random = randomC;
         // call repaint to call paint, update, and paintCOmponent method.
         repaint();
     }
@@ -36,9 +40,9 @@ public class GraphicsPanel extends JPanel{
     String[] grades = {"A", "B", "C", "D", "F"};
     int[] gradeCounts = getGradeCounts(data);
     g.setColor(Color.BLACK);
-    g.drawString("HistoMap", width/2 - 100, 20);
+    g.drawString("Grade Count Graph + Average Grade + Total Grade", width/2 - 100, 20);
     g.drawRect(75, 75, width - 150, height - 150);  // increase the x and y coordinates by 25 pixels to account for the buffer space
-    g.drawString("Grade", 25, 40);
+    g.drawString("Grade Count", 25, 40);
     g.drawString("Count", width - 50, height/2 + 10);
     g.drawLine(75, height - 75, width - 75, height - 75);  // increase the x and y coordinates by 25 pixels to account for the buffer space
     g.drawLine(75, height - 75, 75, 75);  // increase the x and y coordinates by 25 pixels to account for the buffer space
@@ -61,18 +65,18 @@ public class GraphicsPanel extends JPanel{
     }
     
     for (int i = 0; i < grades.length; i++) {
+        g2.setStroke(new BasicStroke(3)); //multiply
         int barHeight = (int) (gradeCounts[i] / 10.0 * maxBarHeight);
         g.setColor(getBarFillColor(grades[i]));
-        g2.setStroke(new BasicStroke(3)); //multiple 
         g.fillRect(x , height - barHeight - 75, barWidth, barHeight);
-        g2.setStroke(new BasicStroke(3)); //multiply
         g.setColor(Color.BLACK);
         g.drawRect(x , height - barHeight - 75, barWidth, barHeight);
         g2.setStroke(new BasicStroke(3));  //
-        g.drawString(grades[i] + " (" + gradeCounts[i] + ")", x + barWidth / 2 - 10, height - barHeight - 80);
+        g.drawString(gradeCounts[i] + "", x + barWidth / 2 - 10, height - barHeight - 80);
         g.drawString(grades[i], x + barWidth / 2 - 10, height - 50);
         x += barWidth + 25;
     } 
+    
     
     //blue line
     g.setColor(Color.BLUE);
@@ -87,32 +91,112 @@ public class GraphicsPanel extends JPanel{
      y = newY;
 
     }
+    
+    //Average grade + total grade
+    int totalGradeCount = 0;
+    double totalGradeScore = 0;
+    for (int i = 0; i < gradeCounts.length; i++) {
+    totalGradeCount += gradeCounts[i];
+    if (grades[i].equals("A")) {
+        totalGradeScore += gradeCounts[i] * 90;
+    } else if (grades[i].equals("B")) {
+        totalGradeScore += gradeCounts[i] * 80;
+    } else if (grades[i].equals("C")) {
+        totalGradeScore += gradeCounts[i] * 70;
+    } else if (grades[i].equals("D")) {
+        totalGradeScore += gradeCounts[i] * 60;
+    } else {
+        totalGradeScore += gradeCounts[i] * 50;
+    }
 }
-
+double averageGrade = totalGradeScore / totalGradeCount;
+g.drawString("Letter Average Grade: " + String.format("%.2f", averageGrade), width - 165, height - 25);
+g.drawString("Grade Count: " + totalGradeCount, width - 150, height - 50);
+}
+    
 private Color getBarFillColor(String grade) {
-if (grade.equals("A") || grade.equals("B")) {
-return Color.GREEN;
-} else if (grade.equals("C")) {
-return Color.YELLOW;
-} else if (grade.equals("D")) {
-return Color.ORANGE;
-} else {
-return Color.RED;
-}
+    int randomNumAB = rand.nextInt(11); //MAKE A AND B THE SAME COLOR
+    Color ranColorAB = colors[randomNumAB];
+if (grade.equals("A") || grade.equals("B") && Random == true) {
+        return ranColorAB;
+    } 
+    else if(grade.equals("A") || grade.equals("B")){
+        return Color.GREEN;
+    }
+
+    if (grade.equals("C") && Random == true) {
+        int randomNum = rand.nextInt(11);
+        Color ranColor = colors[randomNum];
+        return ranColor;
+    } 
+    else if(grade.equals("C")){
+        return Color.YELLOW;
+    }
+
+    if (grade.equals("D") && Random == true) {
+        int randomNum = rand.nextInt(11);
+        Color ranColor = colors[randomNum];
+    return ranColor;
+    } 
+    else if (grade.equals("D")){
+        return Color.ORANGE;
+    }
+
+    else if(grade.equals("F") && Random == true) {
+        int randomNum = rand.nextInt(11);
+        Color ranColor = colors[randomNum];
+    return ranColor;
+    }
+    else{
+        return Color.RED;
+    }
 }
 
 private Color getBarBorderColor(String grade) {
-if (grade.equals("A")) {
-return Color.GREEN;
-} else if (grade.equals("B")) {
-return Color.GREEN;
-} else if (grade.equals("C")) {
-return Color.YELLOW;
-} else if (grade.equals("D")) {
-return Color.ORANGE;
-} else {
-return Color.RED;
-}
+    if (grade.equals("A") && Random == true) {
+        int randomNum = rand.nextInt(11);
+        Color ranColor = colors[randomNum];
+        return ranColor;
+    } 
+    else if(grade.equals("A")){
+        return Color.GREEN;
+    }
+
+    if (grade.equals("B") && Random == true) {
+        int randomNum = rand.nextInt(11);
+        Color ranColor = colors[randomNum];
+        return ranColor;
+    } 
+    else if (grade.equals("B")){
+        return Color.GREEN;
+    }
+
+    if (grade.equals("C") && Random == true) {
+        int randomNum = rand.nextInt(11);
+        Color ranColor = colors[randomNum];
+        return ranColor;
+    } 
+    else if(grade.equals("C")){
+        return Color.ORANGE;
+    }
+
+    if (grade.equals("D") && Random == true) {
+        int randomNum = rand.nextInt(11);
+        Color ranColor = colors[randomNum];
+    return ranColor;
+    } 
+    else if (grade.equals("D")){
+        return Color.ORANGE;
+    }
+
+    else if(grade.equals("F") && Random == true) {
+        int randomNum = rand.nextInt(11);
+        Color ranColor = colors[randomNum];
+    return ranColor;
+    }
+    else{
+        return Color.RED;
+    }
 }
 
 private int[] getGradeCounts(String gradesString) {

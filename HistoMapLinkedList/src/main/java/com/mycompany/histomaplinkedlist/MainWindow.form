@@ -26,11 +26,13 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               <Component id="MainWindow_Button_removeTable" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="MainWindow_Button_GetHashMap" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
+              <EmptySpace pref="126" max="32767" attributes="0"/>
+              <Component id="MainWindow_Button_RanColor" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="MainWindow_TextField_Grades" min="-2" pref="477" max="-2" attributes="0"/>
-              <EmptySpace pref="221" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
               <Component id="MainWindow_Label_GradesHERE" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
           </Group>
@@ -47,6 +49,7 @@
                   <Component id="MainWindow_TextField_Grades" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="MainWindow_Label_GradesHERE" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="MainWindow_Button_removeTable" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="MainWindow_Button_RanColor" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -101,6 +104,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MainWindow_Button_removeTableActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="MainWindow_Button_RanColor">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Random Colors"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MainWindow_Button_RanColorActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

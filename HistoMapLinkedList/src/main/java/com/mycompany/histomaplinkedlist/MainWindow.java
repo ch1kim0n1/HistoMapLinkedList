@@ -26,6 +26,7 @@ public class MainWindow extends javax.swing.JFrame {
         MainWindow_Label_GradesHERE = new javax.swing.JLabel();
         MainWindow_Panel_Graph = new GraphicsPanel();
         MainWindow_Button_removeTable = new javax.swing.JButton();
+        MainWindow_Button_RanColor = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,6 +61,13 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        MainWindow_Button_RanColor.setText("Random Colors");
+        MainWindow_Button_RanColor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MainWindow_Button_RanColorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -67,11 +75,13 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(MainWindow_Button_removeTable)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(MainWindow_Button_GetHashMap)
-                .addGap(150, 150, 150)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                .addComponent(MainWindow_Button_RanColor)
+                .addGap(18, 18, 18)
                 .addComponent(MainWindow_TextField_Grades, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
+                .addGap(108, 108, 108)
                 .addComponent(MainWindow_Label_GradesHERE)
                 .addGap(28, 28, 28))
             .addComponent(MainWindow_Panel_Graph, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -85,7 +95,8 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(MainWindow_Button_GetHashMap)
                     .addComponent(MainWindow_TextField_Grades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(MainWindow_Label_GradesHERE)
-                    .addComponent(MainWindow_Button_removeTable))
+                    .addComponent(MainWindow_Button_removeTable)
+                    .addComponent(MainWindow_Button_RanColor))
                 .addContainerGap())
         );
 
@@ -96,13 +107,18 @@ public class MainWindow extends javax.swing.JFrame {
     //passes the grade data to the Graphics Panel so that histogram is built in the GraphicsComponent(Graphics) methid.
     
     String data = MainWindow_TextField_Grades.getText();
-    ((GraphicsPanel)MainWindow_Panel_Graph).processData(data);
+    ((GraphicsPanel)MainWindow_Panel_Graph).processData(data, false);
     }//GEN-LAST:event_MainWindow_Button_GetHashMapActionPerformed
 
     private void MainWindow_Button_removeTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MainWindow_Button_removeTableActionPerformed
     String data = "";
-    ((GraphicsPanel)MainWindow_Panel_Graph).processData(data);
+    ((GraphicsPanel)MainWindow_Panel_Graph).processData(data, false);
     }//GEN-LAST:event_MainWindow_Button_removeTableActionPerformed
+
+    private void MainWindow_Button_RanColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MainWindow_Button_RanColorActionPerformed
+    String data = MainWindow_TextField_Grades.getText();
+    ((GraphicsPanel)MainWindow_Panel_Graph).processData(data, true);
+    }//GEN-LAST:event_MainWindow_Button_RanColorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,6 +157,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton MainWindow_Button_GetHashMap;
+    private javax.swing.JButton MainWindow_Button_RanColor;
     private javax.swing.JButton MainWindow_Button_removeTable;
     private javax.swing.JLabel MainWindow_Label_GradesHERE;
     private javax.swing.JPanel MainWindow_Panel_Graph;
