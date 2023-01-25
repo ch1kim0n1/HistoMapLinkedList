@@ -40,7 +40,7 @@ Random rand = new Random();
     String[] grades = {"A", "B", "C", "D", "F"};
     int[] gradeCounts = getGradeCounts(data);
     g.setColor(Color.BLACK);
-    g.drawString("Grade Count Graph + Average Grade + Total Grade", width/2 - 100, 20);
+    g.drawString("TOTALLY my friend's grades - HistoMap Graph", width/2 - 100, 20);
     g.drawRect(75, 75, width - 150, height - 150);  // increase the x and y coordinates by 25 pixels to account for the buffer space
     g.drawString("Grade Count", 25, 40);
     g.drawString("Count", width - 50, height/2 + 10);
@@ -98,15 +98,15 @@ Random rand = new Random();
     for (int i = 0; i < gradeCounts.length; i++) {
     totalGradeCount += gradeCounts[i];
     if (grades[i].equals("A")) {
-        totalGradeScore += gradeCounts[i] * 90;
+        totalGradeScore += gradeCounts[i] * 100;
     } else if (grades[i].equals("B")) {
-        totalGradeScore += gradeCounts[i] * 80;
+        totalGradeScore += gradeCounts[i] * 85;
     } else if (grades[i].equals("C")) {
-        totalGradeScore += gradeCounts[i] * 70;
+        totalGradeScore += gradeCounts[i] * 75;
     } else if (grades[i].equals("D")) {
-        totalGradeScore += gradeCounts[i] * 60;
+        totalGradeScore += gradeCounts[i] * 65;
     } else {
-        totalGradeScore += gradeCounts[i] * 50;
+        totalGradeScore += gradeCounts[i] * 55;
     }
 }
 double averageGrade = totalGradeScore / totalGradeCount;
@@ -115,12 +115,15 @@ g.drawString("Grade Count: " + totalGradeCount, width - 150, height - 50);
 }
     
 private Color getBarFillColor(String grade) {
-    int randomNumAB = rand.nextInt(11); //MAKE A AND B THE SAME COLOR
-    Color ranColorAB = colors[randomNumAB];
-if (grade.equals("A") || grade.equals("B") && Random == true) {
+if (grade.equals("A")&& Random == true || grade.equals("B") && Random == true) {
+        int randomNumAB = rand.nextInt(11);
+        Color ranColorAB = colors[randomNumAB];
         return ranColorAB;
     } 
-    else if(grade.equals("A") || grade.equals("B")){
+    else if(grade.equals("A")){
+        return Color.GREEN;
+    }
+    else if(grade.equals("B")){
         return Color.GREEN;
     }
 

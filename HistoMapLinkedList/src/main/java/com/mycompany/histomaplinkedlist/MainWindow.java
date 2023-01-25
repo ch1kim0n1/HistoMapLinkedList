@@ -37,7 +37,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        MainWindow_TextField_Grades.setText("9 30 4 94 85 86 92 100 74 85 96 84 84 82 78 74 60 62 96 87 88");
+        MainWindow_TextField_Grades.setText("94 85 86 92 100 74 85 96 84 84 82 78 74 60 62 96 87 88 50");
 
         MainWindow_Label_GradesHERE.setText("<-Grades here");
 
