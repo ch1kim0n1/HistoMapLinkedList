@@ -51,7 +51,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
         MainWindow_Panel_GraphLayout.setVerticalGroup(
             MainWindow_Panel_GraphLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 564, Short.MAX_VALUE)
+            .addGap(0, 569, Short.MAX_VALUE)
         );
 
         MainWindow_Button_removeTable.setText("Remove Table");
